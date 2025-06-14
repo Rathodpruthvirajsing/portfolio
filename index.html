@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Demo</title>
+</head>
+<body>
+  <div id="root-headings"></div>
+  <div id="root-image"></div>
+  <div id="root-table"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <script>
+    // Render headings H1–H6
+    const headings = [
+      React.createElement('h1', {}, 'This is an H1'),
+      React.createElement('h2', {}, 'This is an H2'),
+      React.createElement('h3', {}, 'This is an H3'),
+      React.createElement('h4', {}, 'This is an H4'),
+      React.createElement('h5', {}, 'This is an H5'),
+      React.createElement('h6', {}, 'This is an H6'),
+    ];
+    const rootHeadings = ReactDOM.createRoot(document.getElementById('root-headings'));
+    rootHeadings.render(React.createElement(React.Fragment, {}, ...headings));
+  </script>
+
+  <script>
+    // Render an image
+    const imgElm = React.createElement('img', {
+      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/…(truncated)…',
+      alt: 'Placeholder Image',
+      style: { maxWidth: '300px', height: 'auto', display: 'block', margin: '10px 0' },
+    });
+    const rootImage = ReactDOM.createRoot(document.getElementById('root-image'));
+    rootImage.render(imgElm);
+  </script>
+
+  <script>
+    // Render a bordered table
+    const table = React.createElement(
+      'table',
+      { style: { border: '2px solid black', borderCollapse: 'collapse', marginTop: '20px' } },
+      React.createElement('caption', {}, 'STUDENT DETAILS'),
+      React.createElement('thead', {},
+        React.createElement('tr', {},
+          React.createElement('th', { style: { border: '2px solid black', padding: '4px' } }, 'Name'),
+          React.createElement('th', { style: { border: '2px solid black', padding: '4px' } }, 'Surname')
+        )
+      ),
+      React.createElement('tbody', {},
+        React.createElement('tr', {},
+          React.createElement('td', { style: { border: '2px solid black', padding: '4px' } }, 'Pruthviraj'),
+          React.createElement('td', { style: { border: '2px solid black', padding: '4px' } }, 'Rathod')
+        )
+      )
+    );
+    const rootTable = ReactDOM.createRoot(document.getElementById('root-table'));
+    rootTable.render(table);
+  </script>
+</body>
+</html>
+
